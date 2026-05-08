@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "newword"
+version = "1.0.0"
+description = "基于 Nagao 算法的新词发现与领域词典构建工具"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [
+    { name = "zhangbin01" },
+]
+keywords = ["nlp", "new-word-discovery", "nagao", "chinese"]
+
+[project.scripts]
+newword = "newword.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+include = ["newword*"]
+
+[tool.setuptools.package-data]
+newword = ["data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
